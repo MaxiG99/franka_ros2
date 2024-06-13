@@ -7,7 +7,7 @@ install(
   DIRECTORY config launch srdf rviz
   DESTINATION share/${PROJECT_NAME}
 )
-
+find_package(franka_hardware REQUIRED)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()

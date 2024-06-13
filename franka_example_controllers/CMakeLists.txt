@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(franka_example_controllers)
-
+set(Franka_DIR "/home/tamer/libfranka/build")
 # Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 17)

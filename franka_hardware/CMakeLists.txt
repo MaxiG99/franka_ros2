@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
+set(Franka_DIR "/home/tamer/libfranka/build")
+
 project(franka_hardware)
 
 if(NOT CMAKE_CXX_STANDARD)

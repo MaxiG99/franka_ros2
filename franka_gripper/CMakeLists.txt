@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 project(franka_gripper)
 
+set(Franka_DIR "/home/tamer/libfranka/build")
+
+
 if(NOT CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 17)
 endif()
