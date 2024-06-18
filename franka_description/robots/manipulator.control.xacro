@@ -23,25 +23,22 @@
             </joint>
         </xacro:macro>
 
-
         <xacro:property name="arm_id" value="panda" />
-        <xacro:joint_configuration joint_name="${arm_id}_joint1" initial_position="0.0"/>
-        <xacro:joint_configuration joint_name="${arm_id}_joint2" initial_position="${+pi/4}"/>
-        <xacro:joint_configuration joint_name="${arm_id}_joint3" initial_position="0.0"/>        
-        <xacro:joint_configuration joint_name="${arm_id}_joint4" initial_position="${-3*pi/4}"/>
-        <xacro:joint_configuration joint_name="${arm_id}_joint5" initial_position="0.0"/>        
-        <xacro:joint_configuration joint_name="${arm_id}_joint6" initial_position="${pi/2}"/>        
-        <xacro:joint_configuration joint_name="${arm_id}_joint7" initial_position="${pi/4}"/>        
+
+        <xacro:arg name="initial_joint_values_path" default=""/> <!-- Need argument to get from launch file -->
+        <xacro:property name="jv_path" value="$(arg initial_joint_values_path)"/> <!-- Need seperate property for xacro inorder processing -->
+        <xacro:property name="jv" value="${xacro.load_yaml(jv_path)}"/> <!-- Read in the yaml dict as mp (short for model parameters) -->
+
+        <xacro:joint_configuration joint_name="${arm_id}_joint1" initial_position="${jv['panda_joint1']}"/>
+        <xacro:joint_configuration joint_name="${arm_id}_joint2" initial_position="${jv['panda_joint2']}"/>
+        <xacro:joint_configuration joint_name="${arm_id}_joint3" initial_position="${jv['panda_joint3']}"/>
+        <xacro:joint_configuration joint_name="${arm_id}_joint4" initial_position="${jv['panda_joint4']}"/>
+        <xacro:joint_configuration joint_name="${arm_id}_joint5" initial_position="${jv['panda_joint5']}"/>
+        <xacro:joint_configuration joint_name="${arm_id}_joint6" initial_position="${jv['panda_joint6']}"/>
+        <xacro:joint_configuration joint_name="${arm_id}_joint7" initial_position="${jv['panda_joint7']}"/>
+      
       
         <!--
-        <xacro:configure_joint joint_name="${ns}_joint1" initial_position="0.0}"/>
-        <xacro:configure_joint joint_name="${ns}_joint2" initial_position="${-pi/4}"/>
-        <xacro:configure_joint joint_name="${ns}_joint3" initial_position="0.0"/>
-        <xacro:configure_joint joint_name="${ns}_joint4" initial_position="${-3*pi/4}"/>
-        <xacro:configure_joint joint_name="${ns}_joint5" initial_position="0.0"/>
-        <xacro:configure_joint joint_name="${ns}_joint6" initial_position="${pi/2}"/>
-        <xacro:configure_joint joint_name="${ns}_joint7" initial_position="${pi/4}"/>
-      
         <joint name="panda_joint1">
             <command_interface name="effort">
                 

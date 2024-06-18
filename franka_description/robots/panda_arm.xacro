@@ -114,11 +114,7 @@
         <mass value="${mass_link0}" />
         <inertia ixx="0.009" iyy="0.0122" izz="0.0122" ixy="0.0" ixz="-0.00010" iyz="0.0" />
       </inertial>
-    </link>
-      
-
-
-
+    </link>  
     <link name="${arm_id}_link1">
       <visual>
         <geometry>
